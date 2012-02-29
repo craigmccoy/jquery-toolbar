@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>craigmccoy/jquery-toolbar test 2 (form elements)</title>
+		<title>craigmccoy/jquery-toolbar test 3 (images)</title>
 		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 		<script src="../jquery.toolbar.js"></script>
 		<script>
 			$(document).ready(function() {
 				var logger = $('#logger');
 				
-				$('#test2').toolbar().bind('focus', function() {
+				$('#test3').toolbar().bind('focus', function() {
 					logger.val(logger.val() + 'toolbar fully visible\n');
 				}).bind('blur', function() {
 					logger.val(logger.val() + 'toolbar faded\n');
@@ -52,14 +52,13 @@
 			.demo header, .debug header { border: 0; }
 			.debug textarea { height: 200px; }
 			
-			#test2 { background-color: #333; color: #e1e1e1; padding: 5px; text-align: center; }
-			#test2 input { width: auto; display: inline; }
+			#test3 { background-color: #333; color: #e1e1e1; padding: 5px; text-align: center; }
 		</style>
 	</head>
 	<body>
 		<div id="page-wrapper">
 			<header>
-				<h1>craigmccoy/jquery-toolbar test 2 (form elements)</h1>
+				<h1>craigmccoy/jquery-toolbar test 3 (images)</h1>
 				<nav>
 					<a class="reset-demo" href="#" title="reset">reset</a>
 				</nav>
@@ -67,18 +66,11 @@
 			<section>	
 				<div class="demo">
 					<header>
-						<h2>Including form elements in the toolbar</h2>
+						<h2>Including images in the toolbar</h2>
 					</header>
 					<section>
-						<div id="test2">
-							<input type="text" value="text input" readonly="readonly" />
-							<label>checkbox <input type="checkbox" /></label>
-							<label>radio <input type="radio" /></label>
-							<select>
-								<option>select option 1</option>
-								<option>select option 2</option>
-								<option>select option 3</option>
-							</select>
+						<div id="test3">
+							<img src="img/icon.png" alt="question" width="16" height="16" />
 						</div>
 						
 						<p>Here is a snapshot of the settings being used:</p>

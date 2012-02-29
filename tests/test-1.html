@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>craigmccoy/jquery-toolbar test 1</title>
+		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+		<script src="../jquery.toolbar.js"></script>
+		<script>
+			$(document).ready(function() {
+				var logger = $('#logger');
+				
+				$('#test1').toolbar().bind('focus', function() {
+					logger.val(logger.val() + 'toolbar fully visible\n');
+				}).bind('blur', function() {
+					logger.val(logger.val() + 'toolbar faded\n');
+				});
+				
+				//for demo
+				$('.clear-debug').click(function(evt) {
+					evt.preventDefault();
+					$('#logger').val('');
+				});
+				
+				$('.reset-demo').click(function(evt) {
+					evt.preventDefault();
+					$('textarea,input').val('').trigger('charcount');
+					$('.clear-debug').click();
+				});
+				
+			});
+		</script>
+		<style>
+			html { margin: 0; padding: 0; }
+			body { margin: 0; padding: 0; font-family: sans-serif; font-size: 12px; color: #333; }
+			
+			header { position: relative; border-bottom: 1px dashed #333; padding: 0 0 5px; }
+			header nav { position: absolute; top: 0; right: 0; }
+			
+			footer { border-top: 1px dashed #333; padding: 10px 0 0; margin: 15px 0 0; }
+			
+			h1, h2 { margin: 0; padding: 0; }
+			h1 { font-size: 20px; }
+			h2 { font-size: 16px; }
+			
+			a { text-decoration: none; }
+			a:hover, a:active { text-decoration: underline; }
+			
+			textarea { height: 100px; } 
+			textarea, input { width: 100%; margin: 0; display: block; }
+			
+			#page-wrapper { margin: 10px auto; width: 960px; }
+			
+			.demo, .debug { margin: 15px 0; }
+			.demo header, .debug header { border: 0; }
+			.debug textarea { height: 200px; }
+			
+			#test1 { background-color: #333; color: #e1e1e1; text-align: center; padding: 5px 0; }
+		</style>
+	</head>
+	<body>
+		<div id="page-wrapper">
+			<header>
+				<h1>craigmccoy/jquery-toolbar test 1</h1>
+				<nav>
+					<a href="https://github.com/craigmccoy/jquery-toolbar" title="back to the repository">&laquo; back to the repository</a>
+					&nbsp;|&nbsp;&nbsp;<a class="reset-demo" href="#" title="reset">reset</a>
+				</nav>
+			</header>
+			<section>	
+				<div class="demo">
+					<header>
+						<h2>Using plugin defaults</h2>
+					</header>
+					<section>
+						<div id="test1">Toolbar</div>
+						
+						<p>Here is a snapshot of the settings being used:</p>
+						
+						<ul>
+							<li><strong>fadeSpeed:</strong> 200</li>
+							<li><strong>fadeTo:</strong> 0.5</li>
+							<li><strong>topDistance:</strong> 30</li>
+							<li><strong>autoPosition:</strong> true</li>
+							<li><strong>classPrefix:</strong> "toolbar"</li>
+						</ul>
+						
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec imperdiet erat at elit rutrum nec pulvinar diam viverra. Praesent mauris ante, malesuada nec gravida vitae, varius nec metus. Quisque ut semper nunc. Praesent sed nisi leo. Donec et ornare sem. Sed accumsan rutrum molestie. Nullam a odio at libero adipiscing aliquet eu vitae sem. Praesent sed ligula sit amet urna luctus accumsan porta a purus. Etiam id nisi dolor, eu fringilla purus. Aliquam lectus libero, gravida sit amet dictum ac, ullamcorper id lacus. Sed a justo at urna lobortis interdum ac eget sapien.</p>
+
+						<p>Fusce scelerisque accumsan purus sagittis imperdiet. Proin vestibulum consequat nisi, ac tempor massa tristique ut. Donec id volutpat felis. Curabitur laoreet scelerisque volutpat. Nulla a enim orci. Integer at urna ut sapien viverra varius eu in sem. Nullam quis mauris at lacus laoreet porta vel ac leo. Sed mattis pretium orci, in laoreet enim convallis nec. Aenean egestas, massa non tempus pharetra, velit augue consequat nisi, quis aliquet massa nibh non justo. Donec auctor vestibulum sem. In vel elit imperdiet erat condimentum vehicula. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus cursus, enim at malesuada sollicitudin, quam enim dapibus enim, non ultricies urna massa congue sapien. Aliquam vehicula egestas augue, a suscipit felis dapibus ac. Maecenas aliquet sapien a sem gravida a tincidunt nisi sollicitudin. Quisque dictum aliquet nunc sagittis convallis.</p>
+
+						<p>Praesent nec mollis dolor. Nulla facilisi. Cras ultrices enim vitae tellus fringilla ac fermentum lectus luctus. Curabitur vestibulum blandit velit in tincidunt. Fusce arcu diam, imperdiet non commodo ac, pharetra ac nisl. Curabitur a mi in tellus dapibus pulvinar. Quisque sodales gravida fermentum.</p>
+
+						<p>In hac habitasse platea dictumst. Aenean sit amet elit ut odio viverra aliquam vel vitae odio. Integer fermentum lacus ut enim placerat eleifend. Nunc auctor, leo eget mattis ultrices, est lectus ultrices lacus, vitae blandit sapien erat sed enim. Suspendisse potenti. Etiam facilisis pretium metus, eget dignissim justo condimentum at. Quisque tristique hendrerit augue, sed placerat diam venenatis eu. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+						<p>Sed at lorem ac nisl rutrum accumsan. Donec blandit erat ac elit suscipit vel faucibus elit congue. Suspendisse in sem faucibus ligula tempus aliquam. Sed a massa mattis enim dapibus convallis non malesuada risus. Vestibulum sed mi in mi cursus consequat. In tincidunt interdum urna id mollis. Suspendisse molestie orci et sapien porta aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam urna urna, ornare feugiat placerat eu, varius sed nulla.</p>
+
+						<p>Morbi turpis mi, scelerisque sed sagittis at, eleifend ut massa. Pellentesque mattis tempus nunc, nec tristique nisl cursus vitae. Vestibulum pretium volutpat justo, a tempor ante dictum eget. Integer adipiscing adipiscing nulla et auctor. Suspendisse a tortor ut ipsum adipiscing condimentum. In at eros nisi, ut elementum nibh. Donec non mi at magna auctor placerat. Phasellus nec urna odio. Integer et lacus eget felis suscipit hendrerit sed ut elit. Nulla in quam mattis tortor luctus lobortis ac eget ipsum. Fusce ornare, sem ut ornare elementum, sem mi consequat nisl, quis euismod nunc lectus et orci.</p>
+
+						<p>Curabitur luctus volutpat vulputate. Suspendisse varius, ligula ut suscipit suscipit, ipsum libero consequat risus, in feugiat lectus risus interdum turpis. Duis odio nunc, ultrices a viverra eu, accumsan at metus. Suspendisse potenti. Cras tincidunt tempor neque, volutpat bibendum massa vulputate id. Curabitur luctus elementum mauris, at ultrices nibh dignissim a. Nullam et nulla mauris, a molestie ante. Ut justo tellus, blandit vel sagittis et, pretium in purus. Nunc non sodales dolor. Maecenas eu nunc nec nisi adipiscing eleifend. Sed quis sem neque. Ut consequat quam vel magna ultrices tincidunt. Nullam scelerisque lacus malesuada magna vestibulum hendrerit. Sed sem augue, sollicitudin nec convallis a, pharetra id arcu. Nulla id lorem eu quam convallis porta sit amet sed ante.</p>
+
+						<p>Donec pretium rhoncus arcu, et vestibulum lectus euismod vitae. Proin et odio sed felis sagittis scelerisque vitae auctor lectus. Vestibulum vitae urna magna. Ut venenatis sem vel neque pretium ornare. Phasellus facilisis porta metus, et fringilla nisi luctus quis. Morbi eget nunc laoreet odio venenatis convallis. Fusce euismod risus viverra nunc aliquam tincidunt egestas elit ullamcorper. Integer ac quam lectus.</p>
+
+						<p>Fusce non lacus nisl, malesuada pretium enim. Phasellus nec est a orci consectetur posuere at at nibh. In non quam eros, nec euismod augue. Duis commodo, tellus cursus placerat laoreet, felis tortor dictum lorem, sed pharetra metus orci at mauris. Maecenas eleifend hendrerit aliquet. Phasellus auctor dolor in tellus gravida tempus. Integer non est elit, condimentum ornare lacus. Etiam vestibulum laoreet lacus a imperdiet. Nullam lectus arcu, dictum sed blandit gravida, convallis non arcu. Curabitur tempor justo in orci sodales malesuada. Morbi volutpat posuere mi in feugiat. Nunc eu tellus ut tortor tempor sagittis sit amet vitae ligula. Praesent mi est, feugiat nec bibendum egestas, faucibus ac nisi. Nulla in velit sed libero mattis vulputate eget nec felis. Aenean varius, mauris sed hendrerit tincidunt, purus neque eleifend diam, et imperdiet neque velit non purus.</p>
+
+						<p>Donec congue dictum magna quis malesuada. Mauris vitae mi neque, a tincidunt est. Duis mollis nisi quis neque feugiat tempus. Morbi auctor, ante ac accumsan porttitor, lectus lorem venenatis erat, vitae mollis quam mauris eu eros. Aenean aliquet sem in nulla tempor porttitor lacinia at sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras feugiat orci vitae metus aliquet rhoncus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras laoreet quam id enim cursus non porttitor arcu ultricies. Curabitur aliquam eros et nunc eleifend et sodales sem gravida. Nunc vel tellus odio.</p>
+					</section>
+				</div>
+				
+				<div class="debug">
+					<header>
+						<h2>debug console</h2>
+						<nav>
+							<a class="clear-debug" href="#" title="clear">clear</a>
+						</nav>
+					</header>
+					<section>
+						<textarea id="logger" readonly="readonly"></textarea>
+					</section>
+				</div>
+			</section>
+			<footer>
+				<nav>
+					<a href="https://github.com/craigmccoy" title="craigmccoy on Github">craigmccoy</a> on Github
+					&nbsp;|&nbsp;&nbsp;<a href="http://craigmccoy.github.com" title="more demos">more demos</a>
+				</nav>
+			</footer>
+		</div>
+	</body>
+</html>
